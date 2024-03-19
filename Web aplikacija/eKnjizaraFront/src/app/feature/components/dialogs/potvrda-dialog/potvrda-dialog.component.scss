@@ -1,0 +1,22 @@
+.btn{
+    background-color: #e6591d;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    height: 40px;
+}
+:hover.btn{
+    background-color: #b14516;
+    color: white;
+}
+.btn-delete{
+    background-color: red;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    height: 40px;
+}
+:hover.btn-delete{
+    background-color: darkred;
+    color: white;
+}

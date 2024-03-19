@@ -1,0 +1,35 @@
+<h2 mat-dialog-title><span *ngIf="tip=='Dodaj'">Dodaj knjigu</span><span *ngIf="tip=='Izmeni'">Izmeni knjigu</span></h2>
+<mat-dialog-content class="mat-typography pb-0">
+
+    <div class="container">
+        <p>Naslov:</p>
+        <input id="naslovInput" (input)="checkInputFields()" class="form-control" type="text" cdkFocusInitials #naslov placeholder="Naslov">
+        <p>ISBN:</p>
+        <input id="isbnInput" (input)="checkInputFields()" class="form-control" type="text"  #isbn placeholder="ISBN">
+        <p>Autor:</p>
+        <input id="autorInput" (input)="checkInputFields()" class="form-control" type="text"  #autor placeholder="Autor">
+        <p>Izdavac:</p>
+        <input id="izdavacInput" (input)="checkInputFields()" class="form-control" type="text"  #izdavac placeholder="Izdavac">
+        <p>Zanr:</p>
+        <input id="zanrInput" (input)="checkInputFields()" class="form-control" type="text"  #zanr placeholder="Zanr">
+        <p>Godina Izdavanja:</p>
+        <input id="godinaInput" (input)="checkInputFields()" class="form-control" type="text"  #godina placeholder="Godina izdavanja">
+        <p>Cena:</p>
+        <input id="cenaInput" (input)="checkInputFields()" class="form-control" type="text"  #cena placeholder="Cena">
+        <div class="mb-3">
+            <p for="formFile" class="form-label">Izaberi sliku:</p>
+            <input class="form-control" type="file" id="formFile" (change)="handleFileInput($event)">
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="p-4">
+    <button *ngIf="tip=='Izmeni'" [disabled]="!btnEnabled" class="btn mt-2" color="primary" (click)="izmeniKnjigu(naslov.value, isbn.value, autor.value, izdavac.value, zanr.value, godina.value, cena.value)" [mat-dialog-close]="true" >
+        <span>Izmeni</span>
+    </button>
+    <button *ngIf="tip=='Dodaj'" [disabled]="!btnEnabled" class="btn mt-2" color="primary" (click)="dodajKnjigu(naslov.value, isbn.value, autor.value, izdavac.value, zanr.value, godina.value, cena.value)" [mat-dialog-close]="true" >
+        <span>Dodaj</span>
+    </button>
+    <button  class="btn mt-2" color="warn" [mat-dialog-close]="false">Otkaži</button>
+</mat-dialog-actions>

@@ -1,0 +1,81 @@
+<div class="container my-5">
+    <div class="knjizara-container" *ngIf="knjizara$ | async as knjizara">
+        <div class="knjizara-info">
+            <div class="knjizara-slika">
+                <img id="knjizaraSlicka" src="{{knjizara.slika}}">
+            </div>
+            <div class="knjizara-podaci">
+                <div class="naziv mb-5" id="naziv"
+                    style="color: #e6591d; text-align: center; font-size: 2.5rem; padding-top: 10px;">{{knjizara.naziv}}
+                </div>
+                <div class="adresa mb-3" id="adresa" style="padding-left: 20px; font-size: 1.3rem">Adresa:
+                    {{knjizara.adresa}}</div>
+                <div class="telefon mb-3" id="telefon" style="padding-left: 20px; font-size: 1.3rem">Telefon:
+                    {{knjizara.telefon}}</div>
+                <div class="email mb-3" id="email" style="padding-left: 20px; font-size: 1.3rem">Email:
+                    {{knjizara.email}}</div>
+                <div class="dugmici" *ngIf="currentUser|async">
+                    <button class="btn mb-3" (click)="izmeniKnjizaru()">Izmeni</button>
+                    <button class="btn mb-3" style="background-color: red;"
+                        (click)="izbrisiKnjizaru(knjizara)">Izbrisi</button>
+                </div>
+            </div>
+        </div>
+        <div class="knjizara-knjige">
+            <div class="naslov">
+                <div class="my-4" style="font-size: 1.8rem;">Knjige: </div>
+                <button class="btn mx-3 my-4" *ngIf="(currentUser|async) as currentUser" (click)="DodajKnjigu()">Dodaj
+                    knjigu</button>
+            </div>
+            <div class="knjige-container">
+                <div *ngIf="knjizara.knjige.length>0" class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="d-none d-md-table-cell"></th>
+                                <th class="d-none d-md-table-cell">Naslov</th>
+                                <th class="d-none d-md-table-cell">ISBN</th>
+                                <th class="d-none d-md-table-cell">Zanr</th>
+                                <th class="d-none d-md-table-cell">Autor</th>
+                                <th class="d-none d-md-table-cell">Izdavac</th>
+                                <th class="d-none d-md-table-cell">God izdavanja</th>
+                                <th class="d-none d-md-table-cell">Cena</th>
+                                <th class="d-none d-md-table-cell" *ngIf="currentUser|async">Opcije</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="knjiga-row" *ngFor="let knjiga of knjizara.knjige;  let i = index"
+                                id="knjiga-{{ i }}">
+                                <td>
+                                    <div class="knjiga-item">
+                                        <div class="slikaWrap">
+                                            <div class="slika">
+                                                <img id="slikaKnjiga" src="{{knjiga.slika}}" alt="{{knjiga.slika}}"
+                                                    style="filter: brightness(80%)" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td id="naslov" class="d-none d-md-table-cell">{{knjiga.naslov}}</td>
+                                <td id="isbn" class="d-none d-md-table-cell">{{knjiga.isbn}}</td>
+                                <td id="zanr" class="d-none d-md-table-cell">{{knjiga.zanr}}</td>
+                                <td id="autor" class="d-none d-md-table-cell">{{knjiga.autor}}</td>
+                                <td id="izdavac" class="d-none d-md-table-cell">{{knjiga.izdavac}}</td>
+                                <td id="godina" class="d-none d-md-table-cell">{{knjiga.godinaIzdavanja}}</td>
+                                <td id="cena" class="d-none d-md-table-cell">{{knjiga.cena}}RSD</td>
+                                <td class="d-none d-md-table-cell" *ngIf="currentUser|async">
+                                    <div class="dugmici-book" *ngIf="currentUser|async">
+                                        <button class="btn mb-3" (click)="izmeniKnjigu(knjiga)">Izmeni</button>
+                                        <button class="btn mb-3" style="background-color: red;"
+                                            (click)="izbrisiKnjigu(knjiga)">Izbrisi</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p *ngIf="knjizara.knjige.length == 0">Police su prazne!</p>
+            </div>
+        </div>
+    </div>
+</div>

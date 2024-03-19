@@ -1,0 +1,13 @@
+<h2 mat-dialog-title><span *ngIf="tip=='Knjizara'">Obrisi knjizaru</span><span *ngIf="tip=='Knjiga'">Obrisi knjigu</span></h2>
+<mat-dialog-content class="mat-typography pb-0">
+
+    <div class="container">
+        <p>Da li ste sigurni?</p>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="p-4">
+    <button class="btn mt-2" color="#e6591d" [mat-dialog-close]="tip" cdkFocusInitial>Da</button>
+    <button class="btn btn-delete mt-2" color="red" [mat-dialog-close]="false" cdkFocusInitial>Ne</button>
+</mat-dialog-actions>

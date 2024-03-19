@@ -1,0 +1,36 @@
+.register-container{
+    margin: auto;
+    background-color: white;
+    border: 1px solid #e6591d;
+    width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+}
+.tekst{
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.register-form{
+    width: 90%;
+    margin: auto;
+}
+.button{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.btn{
+    background-color: #e6591d;
+    color: white;
+}
+:hover.btn{
+    background-color: #b14516;
+    color: white;
+}
+input{
+    margin-bottom: 10px;
+}
+.interakcija{
+    text-align: center;
+}

@@ -1,0 +1,27 @@
+.navbar {
+    background-color: #e6591d;
+    color: white;
+    box-shadow: 0 0 10px 0 black;
+    z-index: 1000;
+}
+.dugme{
+    background-color: white;
+    color: #555555;
+}
+:hover.dugme{
+    background-color: whitesmoke;
+    color: #555555;
+}
+.navbar a {
+    color: white;
+}
+.btn{
+    background-color: white;
+    text-align: center;
+    font-size: 18px;
+    color: #555555;
+}
+:hover.btn{
+    background-color: whitesmoke;
+    color: #555555;
+}

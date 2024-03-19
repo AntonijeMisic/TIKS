@@ -1,0 +1,28 @@
+<div class="container-fluid my-5">
+    <div class="naslov">
+        <div class="text-center ime mb-5">
+            <h2>Sve knjizare na jednom mestu:</h2>
+        </div>
+        <button class="btn mx-3" *ngIf="(currentUser|async) as currentUser" (click)="dodajKnjizaru()">Dodaj
+            knjizaru</button>
+    </div>
+    <div class="knjizare-container">
+        <div class="knjizara-item-container" *ngFor="let knjizara of knjizare$ | async; let i = index" id="knjizara-{{ i }}">
+            <a routerLink="/knjizare/{{knjizara.id}}" (click)="clicked(knjizara)">
+                <div class="knjizara-item mb-3" >
+                    <div class="slikaWrap">
+                        <div class="slika">
+                            <img src="{{knjizara.slika}}" alt="" style="filter: brightness(80%)" />
+                        </div>
+                    </div>
+                    <div class="content">
+                        <h3 style="font-size: 1.6rem; color: rgb(37, 37, 37);" class="name">Naziv: {{knjizara.naziv}}
+                        </h3>
+                        <h4 style="font-size: 1.2rem; color: rgb(37, 37, 37);" class="adresa">Adresa:
+                            {{knjizara.adresa}}</h4>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="container-fluid my-5">
+    <div class="login-container">
+        <div class="tekst">Prijavite se</div>
+        <div class="login-form">
+            <form [formGroup]="loginForm">
+                <div class="username">
+                    <input type="text" [class.error]="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')" class="form-control" formControlName="username" placeholder="Username" [(ngModel)]="username" />
+                    <small class="text-danger" id="usernameNotFound" *ngIf="loginForm.controls['username'].dirty && loginForm.hasError('required', 'username')">*Username je obavezno polje</small>
+                </div>
+                <div class="password">
+                    <input type="password" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')" class="form-control" formControlName="password" placeholder="Password" [(ngModel)]="password" />
+                    <small class="text-danger" id="passwordNotFound" *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">*Password je obavezno polje</small>
+                </div>
+                <div class="button">
+                    <button type="button" class="btn" (click)="onLogin()">Prijavite se</button>
+                </div>
+            </form>
+            <div class="interakcija">
+                <p>Ukoliko nemate nalog, <a routerLink="/register"
+                    class="fw-bold text-body"><u>napravite svoj ovde</u></a></p>
+            </div>
+        </div>
+    </div>
+</div>

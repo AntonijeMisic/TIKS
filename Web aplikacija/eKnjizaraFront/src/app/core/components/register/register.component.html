@@ -1,0 +1,64 @@
+<div class="container-fluid my-5">
+    <div class="register-container">
+        <div class="tekst">Registrujte se</div>
+        <div class="register-form">
+            <form [formGroup]="registerForm">
+                <div class="ime">
+                    <input type="text"
+                        [class.error]="registerForm.controls['ime'].dirty && registerForm.hasError('required', 'ime')"
+                        class="form-control" formControlName="ime" placeholder="Ime" [(ngModel)]="ime">
+                    <small class="text-danger" id="imeSmall"
+                        *ngIf="registerForm.controls['ime'].dirty && registerForm.hasError('required', 'ime')">*Ime je
+                        obavezno polje</small>
+                </div>
+                <div class="prezime">
+                    <input type="text"
+                        [class.error]="registerForm.controls['prezime'].dirty && registerForm.hasError('required', 'prezime')"
+                        class="form-control" formControlName="prezime" placeholder="Prezime" [(ngModel)]="prezime">
+                    <small class="text-danger" id="prezimeSmall"
+                        *ngIf="registerForm.controls['prezime'].dirty && registerForm.hasError('required', 'prezime')">*Prezime
+                        je obavezno polje</small>
+                </div>
+                <div class="username">
+                    <input type="text"
+                        [class.error]="registerForm.controls['username'].dirty && registerForm.hasError('required', 'username')"
+                        class="form-control" formControlName="username" placeholder="Username" [(ngModel)]="username">
+                    <small class="text-danger" id="usernameSmall"
+                        *ngIf="registerForm.controls['username'].dirty && registerForm.hasError('required', 'username')">*Username
+                        je obavezno polje</small>
+                </div>
+                <div class="email">
+                    <input type="email"
+                        [class.error]="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')"
+                        class="form-control" formControlName="email" placeholder="Email" [(ngModel)]="email">
+                    <small class="text-danger" id="emailSmall"
+                        *ngIf="registerForm.controls['email'].dirty && registerForm.hasError('required', 'email')">*Email
+                        je obavezno polje</small>
+                </div>
+                <div class="password">
+                    <input type="password"
+                        [class.error]="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')"
+                        class="form-control" formControlName="password" placeholder="Password" [(ngModel)]="password">
+                    <small class="text-danger" id="passwordSmall"
+                        *ngIf="registerForm.controls['password'].dirty && registerForm.hasError('required', 'password')">*Password
+                        je obavezno polje</small>
+                </div>
+                <div class="confirm-password">
+                    <input type="password"
+                        [class.error]="registerForm.controls['repPassword'].dirty && registerForm.hasError('required', 'repPassword')"
+                        class="form-control" formControlName="repPassword" placeholder="Confirm password"
+                        [(ngModel)]="repPassword">
+                    <small class="text-danger" id="repPasswordSmall"
+                        *ngIf="registerForm.controls['repPassword'].dirty && registerForm.hasError('required', 'repPassword')">*Confirm
+                        password je obavezno polje</small>
+                </div>
+                <div class="button">
+                    <button type="button" class="btn" (click)="onRegister()">Registrujte se</button>
+                </div>
+            </form>
+            <div class="interakcija">
+                <p>Ukoliko imate nalog, <a routerLink="/login" class="fw-bold text-body"><u>prijavite se</u></a></p>
+            </div>
+        </div>
+    </div>
+</div>

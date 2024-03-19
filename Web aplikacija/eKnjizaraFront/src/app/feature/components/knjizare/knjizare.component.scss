@@ -1,0 +1,59 @@
+a{
+    color: black;
+    text-decoration: none;
+}
+.knjizara-item{
+    display: flex;
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #e6591d;
+    border-radius: 10px;
+}
+:hover.knjizara-item{
+    transform: scale(1.05); /* Povećava element za 5% */
+    box-shadow: 0px 0px 3px 1px #e6591d;
+}
+.add-theme-container
+{
+    width: 80%;
+    margin: auto;
+    border: 1px solid #e6591d;
+    border-radius: 10px;
+    padding: 20px;
+}
+.naslov{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.title {
+    width: 40%;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-left: 20px;
+}
+.slika img{
+    width: 180px;
+    height: 100%;
+}
+.btn{
+    background-color: #e6591d;
+    text-align: center;
+    font-size: 18px;
+    color: white;
+    height: 40px;
+}
+:hover.btn{
+    background-color: #b14516;
+    color: white;
+}
+
+@media (max-width: 768px) {}

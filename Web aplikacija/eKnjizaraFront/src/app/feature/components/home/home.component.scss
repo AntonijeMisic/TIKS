@@ -1,0 +1,37 @@
+.container {
+    margin-top: 100px;
+    display: flex;
+    /* Omogućava fleksboks postavku */
+    align-items: center;
+    /* Centrira sadržaj vertikalno */
+}
+
+.col-md-6 {
+    flex: 1;
+    /* Daje jednak prostor slici i tekstu */
+    cursor: pointer;
+}
+
+.col-md-6:first-child {
+    /* Dodaje marginu desno za sliku */
+    margin-right: 100px;
+}
+
+:hover.col-md-6 {
+    transform: scale(1.08);
+    /* Povećava element za 5% */
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    height: 100px;
+    padding: 30px 0;
+    position: absolute;
+    /* Pozicionira footer */
+    bottom: 0;
+    /* Ljepilo za dno */
+    width: 100%;
+    /* Širina footera */
+}

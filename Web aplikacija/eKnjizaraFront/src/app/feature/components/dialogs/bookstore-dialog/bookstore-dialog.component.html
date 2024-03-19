@@ -1,0 +1,29 @@
+<h2 mat-dialog-title><span *ngIf="tip=='Dodaj'">Dodaj knjizaru</span><span *ngIf="tip=='Izmeni'">Izmeni knjizaru</span></h2>
+<mat-dialog-content class="mat-typography pb-0">
+
+    <div class="container">
+        <p>Naziv:</p>
+        <input id="nazivInput" (input)="checkInputFields()" class="form-control" type="text" cdkFocusInitials #naziv placeholder="Naziv">
+        <p>Adresa:</p>
+        <input id="adresaInput" (input)="checkInputFields()" class="form-control" type="text"  #adresa placeholder="Adresa">
+        <p>Email:</p>
+        <input id="emailInput" (input)="checkInputFields()" class="form-control" type="text"  #email placeholder="Email">
+        <p>Telefon:</p>
+        <input id="telefonInput" (input)="checkInputFields()" class="form-control" type="text"  #telefon placeholder="Telefon">
+        <div class="mb-3">
+            <p for="formFile" class="form-label">Izaberi sliku:</p>
+            <input class="form-control" type="file" id="formFile" (change)="handleFileInput($event)">
+        </div>
+    </div>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end" class="p-4">
+    <button *ngIf="tip=='Izmeni'" [disabled]="!btnEnabled" class="btn mt-2" color="primary" (click)="izmeniKnjizaru(naziv.value, adresa.value, telefon.value, email.value)" [mat-dialog-close]="true" >
+        <span>Izmeni</span>
+    </button>
+    <button *ngIf="tip=='Dodaj'" [disabled]="!btnEnabled" class="btn mt-2" color="primary" (click)="dodajKnjizaru(naziv.value, adresa.value, telefon.value, email.value)" [mat-dialog-close]="true" >
+        <span>Dodaj</span>
+    </button>
+    <button  class="btn mt-2" color="warn" [mat-dialog-close]="false">Otkaži</button>
+</mat-dialog-actions>
